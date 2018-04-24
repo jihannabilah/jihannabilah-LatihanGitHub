@@ -1,0 +1,30 @@
+<html>
+<title> Latihan AJAX 1.html</title>
+<head>
+	<script>
+		function loadXMLDoc(){
+			var xmlhttp;
+			if (window.XMLHttpRequest){
+				xmlhttp=new XMLHttpRequest();
+			} else {
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			xmlhttp.onreadystatechange=function(){
+			if (xmlhttp.readyState==4 && xmlhttp.status==200){
+				document.getElementById("nama, nim, prodi").innerHTML=xmlhttp.responseText;
+			}}
+
+			xmlhttp.open("GET", "text2.xml", true);
+			xmlhttp.send();
+		}
+	</script>
+</head>
+
+<body>
+	<div id = "nama, nim, prodi">
+		<h2> Berikut ini adalah biodata dari kami: </h2>
+	</div>
+	<button type="button" onclick="loadXMLDoc()"> Ubah Tulisan Di atas </button>
+</body>
+</html>
